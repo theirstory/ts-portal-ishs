@@ -20,9 +20,9 @@ export const CollectionsSection = () => {
   }
 
   return (
-    <Box id="collections-section" sx={{ mb: 3, scrollMarginTop: { xs: '64px', md: '120px' } }}>
+    <Box id="repositories-section" sx={{ mb: 3, scrollMarginTop: { xs: '64px', md: '120px' } }}>
       <Typography variant="h4" fontWeight={700} sx={{ mb: 2 }}>
-        All Collections
+        All Repositories
       </Typography>
       <Box
         sx={{

@@ -147,8 +147,8 @@ export const CollectionsDropdown = ({
   return (
     <>
       {compact ? (
-        <Tooltip title="Collections">
-          <IconButton onClick={handleOpen} aria-label="open collections filters" size="small">
+        <Tooltip title="Repositories">
+          <IconButton onClick={handleOpen} aria-label="open repositories filters" size="small">
             <Badge color="primary" badgeContent={activeCount} invisible={activeCount === 0}>
               <FolderOutlinedIcon fontSize="small" />
             </Badge>
@@ -158,14 +158,14 @@ export const CollectionsDropdown = ({
         <Button
           size="small"
           onClick={handleOpen}
-          aria-label="open collections filters"
+          aria-label="open repositories filters"
           endIcon={<KeyboardArrowDownIcon />}
           sx={{
             textTransform: 'none',
             minWidth: '150px',
             px: 1.5,
           }}>
-          {`Collections ${activeCount > 0 ? `(${activeCount})` : ''}`}
+          {`Repositories ${activeCount > 0 ? `(${activeCount})` : ''}`}
         </Button>
       )}
 
@@ -186,12 +186,12 @@ export const CollectionsDropdown = ({
         }}>
         <Box sx={{ p: 2 }}>
           <Typography variant="h6" fontSize="1.1rem" fontWeight={700} mb={1.5}>
-            Filter by Collection
+            Filter by Repository
           </Typography>
           <TextField
             fullWidth
             size="small"
-            placeholder="Search collections..."
+            placeholder="Search repositories..."
             value={searchTerm}
             onChange={(event) => setSearchTerm(event.target.value)}
           />
@@ -237,7 +237,7 @@ export const CollectionsDropdown = ({
 
           {filteredCollections.length === 0 && (
             <Box sx={{ p: 2 }}>
-              <Typography color="text.secondary">No collections found.</Typography>
+              <Typography color="text.secondary">No repositories found.</Typography>
             </Box>
           )}
         </Box>

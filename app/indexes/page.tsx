@@ -132,7 +132,10 @@ export default function IndexesPage() {
         ? data.stories.filter((story) => selectedCollectionIds.includes(story.collection_id))
         : data.stories;
 
-    const seen = new Map<string, { id: string; name: string; path: string; collectionId: string; collectionName: string }>();
+    const seen = new Map<
+      string,
+      { id: string; name: string; path: string; collectionId: string; collectionName: string }
+    >();
     for (const story of storiesForFolders) {
       if (!story.folder_id || seen.has(story.folder_id)) continue;
       seen.set(story.folder_id, {
@@ -231,9 +234,7 @@ export default function IndexesPage() {
     setSelectedFolderIds((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
 
     if (folder?.collectionId) {
-      setSelectedCollectionIds((prev) =>
-        prev.includes(folder.collectionId) ? prev : [...prev, folder.collectionId],
-      );
+      setSelectedCollectionIds((prev) => (prev.includes(folder.collectionId) ? prev : [...prev, folder.collectionId]));
     }
   };
 
@@ -451,7 +452,7 @@ export default function IndexesPage() {
                     color: 'text.primary',
                     '&:hover': { bgcolor: colors.grey[100] },
                   }}>
-                  {selectedCollectionIds.length === 0 ? 'All collections' : `${selectedCollectionIds.length} selected`}
+                  {selectedCollectionIds.length === 0 ? 'All repositories' : `${selectedCollectionIds.length} selected`}
                 </Button>
                 {selectedCollectionIds.length > 0 && (
                   <Box sx={mobileActiveFiltersRowSx}>
@@ -802,7 +803,7 @@ export default function IndexesPage() {
                         '&:hover': { bgcolor: colors.grey[100] },
                       }}>
                       {selectedCollectionIds.length === 0
-                        ? 'All collections'
+                        ? 'All repositories'
                         : `${selectedCollectionIds.length} selected`}
                     </Button>
                   )}
@@ -854,7 +855,7 @@ export default function IndexesPage() {
                         flexShrink: 0,
                         visibility: canScrollDesktopFiltersLeft ? 'visible' : 'hidden',
                       }}>
-                        <ChevronLeftIcon fontSize="small" />
+                      <ChevronLeftIcon fontSize="small" />
                     </IconButton>
                     <Box
                       ref={desktopFiltersScrollRef}
@@ -947,7 +948,7 @@ export default function IndexesPage() {
                         flexShrink: 0,
                         visibility: canScrollDesktopFiltersRight ? 'visible' : 'hidden',
                       }}>
-                        <ChevronRightIcon fontSize="small" />
+                      <ChevronRightIcon fontSize="small" />
                     </IconButton>
                   </Box>
                 )}
@@ -1023,7 +1024,7 @@ export default function IndexesPage() {
                     color: 'text.primary',
                     '&:hover': { bgcolor: colors.grey[100] },
                   }}>
-                  {selectedCollectionIds.length === 0 ? 'All collections' : `${selectedCollectionIds.length} selected`}
+                  {selectedCollectionIds.length === 0 ? 'All repositories' : `${selectedCollectionIds.length} selected`}
                 </Button>
               </>
             )}
@@ -1151,7 +1152,7 @@ export default function IndexesPage() {
               <TextField
                 fullWidth
                 size="small"
-                placeholder="Filter collections..."
+                placeholder="Filter repositories..."
                 value={collectionFilterTerm}
                 onChange={(e) => setCollectionFilterTerm(e.target.value)}
                 onClick={(e) => e.stopPropagation()}
@@ -1182,7 +1183,7 @@ export default function IndexesPage() {
               })}
               {filteredCollectionsForDropdown.length === 0 && (
                 <Typography variant="body2" color="text.secondary" sx={{ px: 2, py: 2 }}>
-                  No collections match.
+                  No repositories match.
                 </Typography>
               )}
             </Box>

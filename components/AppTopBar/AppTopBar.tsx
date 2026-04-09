@@ -34,7 +34,7 @@ export const AppTopBar = () => {
   const isStoryPage = pathname.startsWith('/story/');
   const isChatPage = pathname.startsWith('/discover');
   const isIndexPage = pathname.startsWith('/indexes');
-  const isCollectionsPage = pathname.startsWith('/collections');
+  const isCollectionsPage = pathname.startsWith('/repositories');
   const isHomePage = pathname === '/';
   const isFullScreenPage = isStoryPage || isChatPage;
   const isAutoCollapsePage = isStoryPage || isChatPage || isIndexPage;
@@ -131,7 +131,7 @@ export const AppTopBar = () => {
                 }}>
                 {!isHomePage && <Link href="/">RECORDINGS</Link>}
                 {!isIndexPage && <Link href="/indexes">INDEXES</Link>}
-                {shouldShowCollectionsLink && !isCollectionsPage && <Link href="/collections">COLLECTIONS</Link>}
+                {shouldShowCollectionsLink && !isCollectionsPage && <Link href="/repositories">REPOSITORIES</Link>}
                 {!isFullScreenPage && (
                   <Tooltip title={isTopBarCollapsed ? 'Expand' : 'Collapse'}>
                     <IconButton
@@ -178,9 +178,9 @@ export const AppTopBar = () => {
                     '&:hover': { opacity: 1 },
                   },
                 }}>
-                {!isHomePage && <Link href="/">RECORDINGS</Link>}
-                {!isIndexPage && <Link href="/indexes">INDEXES</Link>}
-                {shouldShowCollectionsLink && !isCollectionsPage && <Link href="/collections">COLLECTIONS</Link>}
+                <Link href="/">RECORDINGS</Link>
+                <Link href="/indexes">INDEXES</Link>
+                {shouldShowCollectionsLink && !isCollectionsPage && <Link href="/repositories">REPOSITORIES</Link>}
                 {isChatEnabled && (
                   <Box
                     component={Link}
