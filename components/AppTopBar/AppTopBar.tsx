@@ -180,7 +180,7 @@ export const AppTopBar = () => {
                 }}>
                 <Link href="/">RECORDINGS</Link>
                 <Link href="/indexes">INDEXES</Link>
-                {shouldShowCollectionsLink && !isCollectionsPage && <Link href="/repositories">REPOSITORIES</Link>}
+                {shouldShowCollectionsLink && <Link href="/repositories">REPOSITORIES</Link>}
                 {isChatEnabled && (
                   <Box
                     component={Link}
